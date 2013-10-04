@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = FakeServer::VERSION
   spec.authors       = ["Mark Evans"]
   spec.email         = ["mark@new-bamboo.co.uk"]
-  spec.description   = %q{Proxy server that records requests}
+  spec.description   = %q{Command line proxy server that records requests, useful for caching external requests in tests}
   spec.summary       = spec.description
   spec.homepage      = ""
   spec.license       = "MIT"
@@ -20,7 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "pry"
   spec.add_runtime_dependency "httparty"
   spec.add_runtime_dependency "puma"
   spec.add_runtime_dependency "thor"
