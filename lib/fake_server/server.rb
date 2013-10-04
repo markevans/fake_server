@@ -1,18 +1,21 @@
 require 'fake_server/remote_api'
+require 'logger'
 
 module FakeServer
   class Server
 
-    def initialize(host)
+    def initialize(host, log_file=nil)
       @remote_api = RemoteAPI.new(host)
+      @logger = Logger.new(log_file || STDOUT)
     end
 
-    attr_reader :remote_api
+    attr_reader :remote_api, :logger
 
     def call(env)
       url = env["REQUEST_URI"]
       method = env["REQUEST_METHOD"]
 
+      logger.info("#{method} #{url}")
       if method == "GET"
         VCR.use_cassette(url) { remote_api.request(method, url) }
       else
