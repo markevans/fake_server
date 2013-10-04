@@ -20,8 +20,10 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
-  spec.add_runtime_dependency "em-http-request"
-  spec.add_runtime_dependency "thin"
+  spec.add_development_dependency "pry"
+  spec.add_runtime_dependency "httparty"
+  spec.add_runtime_dependency "puma"
   spec.add_runtime_dependency "thor"
   spec.add_runtime_dependency "vcr"
+  spec.add_runtime_dependency "webmock"
 end

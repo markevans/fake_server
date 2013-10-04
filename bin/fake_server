@@ -1,0 +1,2 @@
+require 'fake_server'
+FakeServer::CLI.start(ARGV)
