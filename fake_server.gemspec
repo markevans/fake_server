@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = FakeServer::VERSION
   spec.authors       = ["Mark Evans"]
   spec.email         = ["mark@new-bamboo.co.uk"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Proxy server that records requests}
+  spec.summary       = spec.description
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -20,4 +20,8 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
+  spec.add_runtime_dependency "em-http-request"
+  spec.add_runtime_dependency "thin"
+  spec.add_runtime_dependency "thor"
+  spec.add_runtime_dependency "vcr"
 end
