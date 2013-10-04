@@ -1,29 +1,12 @@
 # FakeServer
+FakeServer proxies web requests to another host but records GET requests and plays them back, which is useful for running tests which make external requests without actually hitting the server after the first time.
 
-TODO: Write a gem description
+    $ gem install "fake_server"
 
-## Installation
+    $ fake_server start 'http://some.other.place.com'
 
-Add this line to your application's Gemfile:
+It defaults to running on port 5555, and records GET requests in the directory `cassettes`.
 
-    gem 'fake_server'
+For all options, use
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install fake_server
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+    $ fake_server help start
