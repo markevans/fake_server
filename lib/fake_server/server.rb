@@ -17,11 +17,21 @@ module FakeServer
 
       logger.info("#{method} #{url}")
       if method == "GET"
-        VCR.use_cassette(url) { remote_api.request(method, url) }
+        name = cassette_name(url)
+        logger.info("using cassette #{name}")
+        VCR.use_cassette(name) { remote_api.request(method, url) }
       else
         remote_api.request(method, url)
       end
 
     end
+
+    private
+
+    def cassette_name(url)
+      name = url.sub(/\/\z/, '')
+      name.empty? ? "_root" : name
+    end
+
   end
 end
