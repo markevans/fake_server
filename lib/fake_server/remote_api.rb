@@ -4,6 +4,7 @@ module FakeServer
   class RemoteAPI
     def initialize(host)
       @host = host
+      @host = "http://#{host}" unless host[/\Ahttp/]
     end
 
     attr_reader :host
