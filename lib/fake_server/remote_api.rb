@@ -10,6 +10,7 @@ module FakeServer
 
     def request(method, relative_url)
       response = HTTParty.public_send(method.downcase, "#{host}#{relative_url}")
+      response.headers.delete 'transfer-encoding'
       [response.code, response.headers, [response.body]]
     end
   end
